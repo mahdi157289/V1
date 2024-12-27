@@ -1,0 +1,38 @@
+{
+  "name": "dreaca",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "npm run start-server",
+    "start-server": "node server/index.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "cd client && npm install && npm run build && cp -a build/. ../server/public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Achref220/Dream-Career.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Achref220/Dream-Career/issues"
+  },
+  "homepage": "https://github.com/FOR-TIMI/Dream-Career#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "openai": "^4.56.0",
+    "react-redux": "^9.0.4",
+    "redux": "^5.0.1"
+  },
+  "engines": {
+    "node": ">=18.12.1 <19.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}

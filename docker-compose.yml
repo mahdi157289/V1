@@ -1,0 +1,27 @@
+version: '3'
+services:
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    ports:
+      - "3000:3000"  # Adjust if your React app runs on a different port
+    volumes:
+      - ./client:/app/client
+    environment:
+      - NODE_ENV=development
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: server
+    ports:
+      - "5000:5000"  # Adjust if your server runs on a different port
+    volumes:
+      - ./server:/app/server
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - client
